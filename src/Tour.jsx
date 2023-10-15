@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tour = () => {
+const Tour = ({ image, info, name, price }) => {
   return <div>Tour</div>;
 };
 

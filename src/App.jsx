@@ -33,7 +33,9 @@ const App = () => {
 
   return (
     <main>
-      <Tours />
+      <h3 className="title">Our torus</h3>
+      <div className="title-underline"></div>
+      <Tours tours={tours} />
     </main>
   );
 };
