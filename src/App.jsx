@@ -19,6 +19,11 @@ const App = () => {
       console.log(error);
     }
   };
+  const removeItem = (id) => {
+    const newItem = tours.filter((item) => item.id !== id);
+    setTours(newItem);
+  };
+
   useEffect(() => {
     fetchTours();
   }, []);
@@ -35,7 +40,7 @@ const App = () => {
     <main>
       <h3 className="title">Our torus</h3>
       <div className="title-underline"></div>
-      <Tours tours={tours} />
+      <Tours tours={tours} removeItem={removeItem} />
     </main>
   );
 };
