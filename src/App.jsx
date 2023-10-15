@@ -10,6 +10,9 @@ const App = () => {
 
   const fetchTours = async () => {
     try {
+      setIsLoading(true);
+      // for refetch function to work
+      // set loading to true again at beginning
       const resp = await fetch(url);
       const data = await resp.json();
       setIsLoading(false);
@@ -35,11 +38,21 @@ const App = () => {
       </main>
     );
   }
+  if (tours.length === 0) {
+    return (
+      <main>
+        <div className="title">
+          <h2>no tours left</h2>
+          <button className="btn" onClick={() => fetchTours()}>
+            refresh
+          </button>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main>
-      <h3 className="title">Our torus</h3>
-      <div className="title-underline"></div>
       <Tours tours={tours} removeItem={removeItem} />
     </main>
   );
